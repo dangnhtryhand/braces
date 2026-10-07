@@ -174,6 +174,14 @@ console.log(braces.expand('a{b}c'));
 
 ## Options
 
+### Nesting limit
+
+Patterns support up to 100 nested brace or parenthesis blocks. Escaped delimiters,
+quoted content, and character classes do not count as nested blocks. Deeper
+patterns throw a `SyntaxError` before recursive processing can exhaust the stack.
+The same limit applies to ASTs passed directly to `compile`, `expand`, or
+`stringify`. Increasing `maxLength` does not disable this depth limit.
+
 ### options.maxLength
 
 **Type**: `Number`
